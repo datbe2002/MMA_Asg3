@@ -4,16 +4,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS } from "../../constant/theme";
 import FavouritePageStack from "../favourite_stacks";
 import HomepageStack from "../home_stacks";
+import { resetTabStacksOnBlur } from "../../shared/helper";
 
 const Tab = createBottomTabNavigator();
 
 const tabBarStyle = {
+  height: 80,
   paddingTop: 20,
-  borderRadius: 50,
-  height: 100,
-  position: "absolute",
-  bottom: 40,
-  marginHorizontal: 40,
 };
 
 export default function BottomTabNavigation() {
@@ -22,11 +19,15 @@ export default function BottomTabNavigation() {
       initialRouteName="Homepage"
       activeColor={COLORS.primary}
       tabBarHideKeyBoard={true}
-      barStyle={{ paddingBottom: 48 }}
+      barStyle={{ paddingBottom: 0 }}
+      screenOptions={() => ({
+        tabBarShowLabel: false,
+      })}
     >
       <Tab.Screen
         name="Homepage"
         component={HomepageStack}
+        listeners={resetTabStacksOnBlur}
         options={{
           headerShown: false,
           tabBarStyle: tabBarStyle,
@@ -34,7 +35,7 @@ export default function BottomTabNavigation() {
             <Ionicons
               name={focused ? "home" : "home-outline"}
               color={focused ? COLORS.primary : COLORS.cream}
-              size={34}
+              size={35}
             />
           ),
         }}
@@ -42,6 +43,7 @@ export default function BottomTabNavigation() {
       <Tab.Screen
         name="Favourite"
         component={FavouritePageStack}
+        listeners={resetTabStacksOnBlur}
         options={{
           headerShown: false,
           tabBarStyle: tabBarStyle,
@@ -49,7 +51,7 @@ export default function BottomTabNavigation() {
             <Ionicons
               name={focused ? "heart" : "heart-circle"}
               color={focused ? COLORS.primary : COLORS.cream}
-              size={34}
+              size={35}
             />
           ),
         }}

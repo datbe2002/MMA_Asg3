@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StackActions } from "@react-navigation/native";
 
 const screenOption = { headerShown: false };
 
@@ -40,10 +41,25 @@ const clearAsyncWithKey = async (key) => {
   }
 };
 
+/**
+ * Resets tabs with stackNavigators to the first route when navigation to another tab
+ */
+const resetTabStacksOnBlur = ({ navigation }) => ({
+  blur: () => {
+    const state = navigation.getState();
+
+    state.routes.forEach((route, tabIndex) => {
+      if (state?.index !== tabIndex && route.state?.index > 0) {
+        navigation.dispatch(StackActions.popToTop());
+      }
+    });
+  },
+});
 export {
   addItemsToAsyncStorage,
   clearAsyncWithKey,
   getItemsFromAsyncStorage,
   removeItemsFromAsyncStorage,
+  resetTabStacksOnBlur,
   screenOption,
 };

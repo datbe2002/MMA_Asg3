@@ -20,6 +20,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { HeartIcon } from "react-native-heroicons/solid";
 
 export default function FavouritePageScreen({ navigation }) {
   const [favorites, setFavorites] = useState([]);
@@ -136,7 +137,7 @@ export default function FavouritePageScreen({ navigation }) {
                     style={styles.deleteContainer}
                     onPress={() => handleRemoveFavorite(item.id)}
                   >
-                    <TrashIcon size={30} strokeWidth={4.5} color={COLORS.red} />
+                    <HeartIcon size={30} strokeWidth={4.5} color={COLORS.red} />
                   </Pressable>
                 </View>
               </View>
@@ -155,12 +156,15 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "flex-start",
-    padding: 16,
+    padding: 12,
+    backgroundColor: COLORS.cream,
+    marginHorizontal: 20,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   image: {
     width: 130,
     height: 130,
-    marginVertical: 7,
     borderRadius: 10,
   },
   detailsContainer: {

@@ -9,7 +9,12 @@ import {
   removeItemsFromAsyncStorage,
 } from "../../shared/helper";
 
-export default function FavoriteLogic({ setIsFavourite, isFavourite, item }) {
+export default function FavoriteLogic({
+  setIsFavourite,
+  isFavourite,
+  item,
+  mr,
+}) {
   useFocusEffect(
     React.useCallback(() => {
       checkIfFavourited();
@@ -38,7 +43,8 @@ export default function FavoriteLogic({ setIsFavourite, isFavourite, item }) {
       style={{
         padding: 10,
         borderRadius: 100,
-        marginRight: 20,
+        marginRight: mr,
+        width: 50,
         backgroundColor: "white",
       }}
       onPress={handleChangeFavourite}

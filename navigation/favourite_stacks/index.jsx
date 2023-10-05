@@ -7,7 +7,7 @@ const FavouriteStack = createNativeStackNavigator();
 
 export default function FavouritePageStack() {
   return (
-    <FavouriteStack.Navigator>
+    <FavouriteStack.Navigator initialRouteName="FavouriteList">
       <FavouriteStack.Screen
         name="FavouriteList"
         component={FavouritePageScreen}

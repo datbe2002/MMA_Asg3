@@ -58,6 +58,7 @@ export default function DetailPageScreen(props) {
           setIsFavourite={setIsFavourite}
           isFavourite={isFavourite}
           item={item}
+          mr={20}
         />
       </View>
       {/* Description */}

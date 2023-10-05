@@ -35,6 +35,33 @@ export const orchids = [
       "Dendrobium nobile is a well-known epiphytic orchid species that produces clusters of colorful and fragrant flowers. It is native to the Himalayan region and parts of China.",
     orchidsImage: require("../images/DendrobiumNobile.jpeg"),
   },
+  {
+    id: 5,
+    orchidsName: "Vanda",
+    orchidsPrice: 1449,
+    category: "Epiphytic Orchid",
+    description:
+      "Vanda, abbreviated in the horticultural trade as V., is a genus in the orchid family, Orchidaceae. There are about 87 species, and the genus is commonly cultivated for the marketplace.",
+    orchidsImage: require("../images/vanda.jpeg"),
+  },
+  {
+    id: 6,
+    orchidsName: "Pleione",
+    orchidsPrice: 1449,
+    category: "Terrestrial Orchid",
+    description:
+      "Pleione is a small genus of predominantly terrestrial but sometimes epiphytic or lithophytic, miniature orchids.",
+    orchidsImage: require("../images/Pleione.jpeg"),
+  },
+  {
+    id: 7,
+    orchidsName: "Pleione",
+    orchidsPrice: 1449,
+    category: "Terrestrial Orchid",
+    description:
+      "Calanthe discolor is a species of orchid. It is native to Japan, and China, Korea. Its vernacular name in Japanese, ebine, means `shrimp-root` in reference to the shape of the plant's pseudobulbs and root system.",
+    orchidsImage: require("../images/Calanthe.jpeg"),
+  },
 ];
 
 export const categoryData = [
@@ -49,3 +76,11 @@ export const categoryData = [
       "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSUBfAP9rSK_itEHksKlXmBwDjm3vbTmaVLi1hX8G_I8_o9SSgRKQ-UayTiRdjtQZbeZxDbzs9OrGekx_i3Swpk3Sm6_G_X5Wgw8c-AtKa-",
   },
 ];
+
+export const epiphyticOrchids = orchids.filter(
+  (orchid) => orchid.category === "Epiphytic Orchid"
+);
+
+export const terrestrialOrchids = orchids.filter(
+  (orchid) => orchid.category === "Terrestrial Orchid"
+);

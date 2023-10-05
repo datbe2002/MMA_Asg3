@@ -6,7 +6,6 @@ import OrchidsSection from "../../components/orchid/OrchidsSection";
 
 export default function HomepageScreen({ navigation }) {
   const [activeCategory, setActiveCategory] = useState("Epiphytic");
-
   return (
     <SafeAreaView
       style={{
@@ -19,7 +18,7 @@ export default function HomepageScreen({ navigation }) {
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
       />
-      <OrchidsSection />
+      <OrchidsSection activeCategory={activeCategory} />
     </SafeAreaView>
   );
 }
